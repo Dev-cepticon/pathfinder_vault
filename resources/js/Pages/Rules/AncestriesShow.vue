@@ -172,6 +172,7 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
 
 
     </div>
+    
     <!-- <img :src="img_location" :alt="ancestry.name" class="img-fluid z-2 position-absolute top-50 end-0 " /> -->
 
 
