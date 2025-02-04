@@ -44,6 +44,9 @@ import NavImgDropdown from "@/Components/NavImgDropdown.vue";
     </div>
     <slot />
     <footer class="bg-tertiary bg-gradient text-light text-center py-3 mt-5">
-        <p>&copy; 2021 Pathfinder Vault</p>
+        <p>&copy; 2025 Pathfinder Vault</p>
+        This website uses content from the Pathfinder 2nd Edition System Reference Document (SRD), published under the
+        Open Game License (OGL) by Paizo Inc. Pathfinder is a registered trademark of Paizo Inc. This site is not
+        affiliated with Paizo Inc. in any way.
     </footer>
 </template>
