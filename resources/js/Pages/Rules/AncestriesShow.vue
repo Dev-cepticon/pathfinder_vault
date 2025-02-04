@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { usePage } from '@inertiajs/vue3';
+import Feat from '../../Components/Character/Feat.vue';
 
 const page = usePage();
 const ancestry = computed(() => page.props.ancestry);
@@ -15,8 +16,9 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
         <nav>
             <ul class="nav nav-tabs" id="tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="ancestry_desc" data-bs-toggle="tab" data-bs-target="#tab-desc" role="tab">{{
-                        ancestry.name }} Details</a>
+                    <a class="nav-link active" id="ancestry_desc" data-bs-toggle="tab" data-bs-target="#tab-desc"
+                        role="tab">{{
+                            ancestry.name }} Details</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="ancestry_heritage" data-bs-toggle="tab" data-bs-target="#tab-heritage"
@@ -25,9 +27,6 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
                 <li class="nav-item">
                     <a class="nav-link" id="ancestry_feats" data-bs-toggle="tab" data-bs-target="#tab-feats"
                         role="tab">{{ ancestry.name }} Feats</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
         </nav>
@@ -150,14 +149,17 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
                     <div class="accordion-item" v-for="heritage, index in ancestry.heritages">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                :data-bs-target="'#collapse'+ index" aria-expanded="true" :aria-controls="'collapse'+ index">
+                                :data-bs-target="'#collapse' + index" aria-expanded="true"
+                                :aria-controls="'collapse' + index">
                                 {{ heritage.name }}
                             </button>
                         </h2>
-                        <div :id="'collapse'+ index" class="accordion-collapse collapse bg-dark text-light"
+                        <div :id="'collapse' + index" class="accordion-collapse collapse bg-dark text-light"
                             data-bs-parent="#accordionHeritage">
                             <div class="accordion-body">
-                                <p>Source <Link href="#">{{ heritage.content_id }}</Link></p>
+                                <p>Source
+                                    <Link href="#">{{ heritage.content_id }}</Link>
+                                </p>
                                 <p>{{ heritage.description }}</p>
                                 <p>{{ heritage.addon.name }}</p>
                                 <p>{{ heritage.addon.trigger }}</p>
@@ -169,10 +171,80 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
                 </div>
             </div>
         </div>
+        <div class="tab-content" id="tab-content">
+            <div class="tab-pane fade show active p-3" id="tab-feats" role="tabpanel" aria-labelledby="ancestry_feat">
 
-
+                <div class="accordion" id="accordionFeats">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse1st" aria-expanded="true" aria-controls="collapse1st">
+                                1st Level
+                            </button>
+                        </h2>
+                        <div id="collapse1st" class="accordion-collapse collapse bg-dark text-light"
+                            data-bs-parent="#accordionHeritage">
+                            <div class="accordion-body">
+                                <template v-for="feat in ancestry.feats">
+                                    <Feat :feat="feat" v-if="feat.level == 1"></Feat>
+                                </template>  
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse5th" aria-expanded="true" aria-controls="collapse5th">
+                                5th Level
+                            </button>
+                        </h2>
+                        <div id="collapse5th" class="accordion-collapse collapse bg-dark text-light"
+                            data-bs-parent="#accordionHeritage">
+                            <div class="accordion-body">
+                                <template v-for="feat in ancestry.feats">
+                                    <Feat :feat="feat" v-if="feat.level == 5"></Feat>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse9th" aria-expanded="true" aria-controls="collapse9th">
+                                9th Level
+                            </button>
+                        </h2>
+                        <div id="collapse9th" class="accordion-collapse collapse bg-dark text-light"
+                            data-bs-parent="#accordionHeritage">
+                            <div class="accordion-body">
+                                <template v-for="feat in ancestry.feats">
+                                    <Feat :feat="feat" v-if="feat.level == 9"></Feat>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse13th" aria-expanded="true" aria-controls="collapse13th">
+                                13th Level
+                            </button>
+                        </h2>
+                        <div id="collapse13th" class="accordion-collapse collapse bg-dark text-light"
+                            data-bs-parent="#accordionHeritage">
+                            <div class="accordion-body">
+                                <template v-for="feat in ancestry.feats">
+                                    <Feat :feat="feat" v-if="feat.level == 13"></Feat>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <!-- <img :src="img_location" :alt="ancestry.name" class="img-fluid z-2 position-absolute top-50 end-0 " /> -->
 
 

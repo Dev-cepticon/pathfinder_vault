@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Heritage;
+use App\Models\Feat;
 
 class Ancestry extends Model
 {
@@ -26,5 +27,10 @@ class Ancestry extends Model
     public function heritages()
     {
         return $this->hasMany(Heritage::class);
+    }
+
+    public function feats()
+    {
+        return $this->hasMany(Feat::class);
     }
 }

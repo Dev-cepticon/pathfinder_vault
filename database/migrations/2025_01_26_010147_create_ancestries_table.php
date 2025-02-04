@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('content_id')->nullable();//->constrained();
             $table->string('name');
-            $table->string('feats')->nullable();
             $table->json('description')->nullable();
             $table->integer('hit_points');
             $table->string('size');

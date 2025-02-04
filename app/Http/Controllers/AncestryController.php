@@ -24,7 +24,7 @@ class AncestryController extends Controller
 
     public function show(Ancestry $ancestry)
     {
-        $ancestry->load('heritages');
+        $ancestry->load(['heritages', 'feats']);
         return inertia('Rules/AncestriesShow', [
             'ancestry' => $ancestry
         ]);

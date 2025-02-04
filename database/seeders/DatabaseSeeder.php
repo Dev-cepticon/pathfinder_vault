@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Ancestry;
 use App\Models\Heritage;
+use App\Models\Feat;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -186,6 +187,51 @@ class DatabaseSeeder extends Seeder
                     'body' => "",
                 ],
         ]);
+        Feat::factory()->create([
+            'ancestry_id' => 2,
+            'name' => 'Dwarven Lore',
+            'description' => 'You eagerly absorbed the old stories and traditions of your ancestors, your gods, and your people, studying in subjects and techniques passed down for generation upon generation.
+            You gain the trained proficiency rank in Crafting and Religion. If you would automatically become trained in one of those skills (from your background or class, for example), you instead become trained in a skill of your choice. You also become trained in Dwarven Lore.',
+            'type' => 'Ancestry',
+            'level' => 1,
+            'tags' => ['Dwarf'],
+        ]);
+        Feat::factory()->create([
+            'ancestry_id' => 2,
+            'name' => 'Dwarven Weapon Familiarity',
+            'description' => 'Your kin have instilled in you an affinity for hard-hitting weapons, and you prefer these to more elegant arms. You are trained with the battle axe, pick, and warhammer. You also gain access to all uncommon dwarf weapons. For the purpose of determining your proficiency, martial dwarf weapons are simple weapons and advanced dwarf weapons are martial weapons.',
+            'type' => 'Ancestry',
+            'level' => 1,
+            'tags' => ['Dwarf'],
+        ]);
+        Feat::factory()->create([
+            'ancestry_id' => 2,
+            'name' => 'Dwarven Weapon Cunning',
+            'description' => 'You’ve learned cunning techniques to get the best effects out of your dwarven weapons. Whenever you critically hit using a battle axe, pick, warhammer, or a dwarf weapon, you apply the weapon’s critical specialization effect.',
+            'prereq' => 'Dwarven Weapon Familiarity',
+            'type' => 'Ancestry',
+            'level' => 5,
+            'tags' => ['Dwarf'],
+        ]);
+        Feat::factory()->create([
+            'ancestry_id' => 2,
+            'name' => 'Stonewalker',
+            'description' => 'You have a deep reverence for and connection to stone. You gain meld into stone as a 3rd-level divine innate spell that you can cast once per day. If you have the Stonecunning dwarf ancestry feat, you can attempt to find unusual stonework and stonework traps that require legendary proficiency in Perception. If you have both Stonecunning and legendary proficiency in Perception, when you’re not Seeking and the GM rolls a secret check for you to notice unusual stonework, you keep the bonus from Stonecunning and don’t take the –2 circumstance penalty.',
+            'prereq' => null,
+            'type' => 'Ancestry',
+            'level' => 9,
+            'tags' => ['Dwarf'],
+        ]);
+        Feat::factory()->create([
+            'ancestry_id' => 2,
+            'name' => 'Dwarven Weapon Expertise',
+            'description' => 'Your dwarven affinity blends with your training, granting you great skill with dwarven weapons. Whenever you gain a class feature that grants you expert or greater proficiency in certain weapons, you also gain that proficiency for battle axes, picks, warhammers, and all dwarven weapons in which you are trained.',
+            'prereq' => 'Dwarven Weapon Familiarity',
+            'type' => 'Ancestry',
+            'level' => 13,
+            'tags' => ['Dwarf'],
+        ]);
+
 
     }
 }
