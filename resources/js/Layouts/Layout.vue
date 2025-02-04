@@ -22,7 +22,8 @@ import NavImgDropdown from "@/Components/NavImgDropdown.vue";
                         <NavLink name="Campaigns" :href="route('campaigns')" current="Campaigns" />
                         <NavLink name="Homebrew" :href="route('homebrew')" current="Homebrew" />
                         <NavDropdown name="Rules">
-                            <NavLink name="Ancestries" :href="route('ancestry')" current="Ancestries" />
+                            <NavLink name="Ancestries" :href="route('ancestries.index')" current="Ancestries" />
+                            <NavLink name="Feats" :href="route('feats.index')" current="Feats" />
 
                         </NavDropdown>
                         <NavLink name="Forums" :href="route('forums')" current="Forums" />

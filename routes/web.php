@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AncestryController;
+use App\Http\Controllers\FeatController;
 
 Route::inertia('/', 'Landing')->name('landing');
 Route::inertia('/characters', 'Characters')->name('characters');
@@ -24,10 +25,12 @@ Route::middleware('guest')->group(function(){
 });
 
 
-Route::get('/ancestries', [AncestryController::class, 'index'])->name('ancestry');
-Route::get('/ancestries/{ancestry}', [AncestryController::class, 'show'])->name('ancestry.show');
+// Route::get('/ancestries', [AncestryController::class, 'index'])->name('ancestry');
+// Route::get('/ancestries/{ancestry}', [AncestryController::class, 'show'])->name('ancestry.show');
+Route::resource('ancestries', AncestryController::class, ['only' => ['index', 'show']]);
 
 
+Route::resource('feats', FeatController::class, ['only' => ['index', 'show']]);
 
 
 
