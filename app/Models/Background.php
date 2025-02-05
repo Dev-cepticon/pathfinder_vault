@@ -15,6 +15,8 @@ class Background extends Model
     ];
 
     protected $casts = [
-        
+        'ability_boosts' => 'json',
+        'skill_proficiencies' => 'json',
+        'feat_grants' => 'json', 
     ];
 }

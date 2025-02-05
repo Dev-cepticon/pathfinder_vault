@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->json('ability_boosts'); 
+            $table->json('skill_proficiencies')->nullable(); 
+            $table->json('feat_grants')->nullable(); 
             $table->timestamps();
         });
     }

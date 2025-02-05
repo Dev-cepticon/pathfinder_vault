@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Ancestry;
 use App\Models\Heritage;
 use App\Models\Feat;
+use App\Models\Background;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -236,7 +237,13 @@ class DatabaseSeeder extends Seeder
             'level' => 13,
             'tags' => ['Dwarf'],
         ]);
-
+        Background::factory()->create([
+            'name' => 'Sailor',
+            'description' => 'You heard the call of the sea from a young age. Perhaps you signed onto a merchant’s vessel, joined the navy, or even fell in with a crew of pirates and scalawags. Choose two ability boosts. One must be to Strength or Dexterity, and one is a free ability boost. You’re trained in the Athletics skill and the Sailing Lore skill. You gain the Underwater Marauder skill feat.',
+            'ability_boosts' => ['required' => ['Strength', 'Wisdom'], 'free' => 1],
+            'skill_proficiencies' => ['Athletics', 'Sailing Lore'],
+            'feat_grants' => ['Underwater Marauder'],
+        ]);
 
     }
 }
