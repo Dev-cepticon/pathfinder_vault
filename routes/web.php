@@ -25,11 +25,8 @@ Route::middleware('guest')->group(function(){
 });
 
 
-// Route::get('/ancestries', [AncestryController::class, 'index'])->name('ancestry');
-// Route::get('/ancestries/{ancestry}', [AncestryController::class, 'show'])->name('ancestry.show');
+
 Route::resource('ancestries', AncestryController::class, ['only' => ['index', 'show']]);
-
-
 Route::resource('feats', FeatController::class, ['only' => ['index', 'show']]);
 
 
