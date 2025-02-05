@@ -18,10 +18,7 @@ return new class extends Migration
             $table->foreignIdfor(Ancestry::class)->nullable();//->constrained();
             $table->string('name');
             $table->text('description')->nullable();
-<<<<<<< HEAD
             $table->string('summary');
-=======
->>>>>>> ebabe00a47a9e3f077146ea7be1b8f3cdfba8193
             $table->string('prereq')->nullable();
             $table->string('type');
             $table->unsignedTinyInteger('level');
