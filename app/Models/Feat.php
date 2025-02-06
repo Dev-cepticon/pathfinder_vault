@@ -23,4 +23,9 @@ class Feat extends Model
     {
         return $this->belongsTo(Ancestry::class);
     }
+
+    public function archetype()
+    {
+        return $this->belongsTo(Archetype::class);
+    }
 }

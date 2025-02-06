@@ -11,11 +11,13 @@ class Archetype_Feature extends Model
     /** @use HasFactory<\Database\Factories\ArchetypeFeatureFactory> */
     use HasFactory;
 
+    protected $table = 'archetype_features';
     protected $guarded = [
 
     ];
 
     protected $casts = [
+        'effect' => 'json',
     ];
 
     public function features()

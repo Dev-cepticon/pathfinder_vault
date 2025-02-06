@@ -344,6 +344,36 @@ class DatabaseSeeder extends Seeder
                 ]
             ]
         );
+        Archetype_Feature::factory()->create([
+            'archetype_id' => 1,
+            'name' => 'Fighter Feats',
+            'description' => 'At 1st level and every even-numbered level, you gain a fighter class feat.',
+            'level' => 1,
+            'effect' => [
+                'feat' => 'Fighter Feats',
+            ],
+        ]);
+        Archetype_Feature::factory()->create([
+            'archetype_id' => 1,
+            'name' => 'Shield Block',
+            'description' => 'You gain the Shield Block general feat, a reaction that lets you reduce damage with your shield.',
+            'level' => 1,
+            'effect' => [
+                'feat' => 'Shield Block',
+            ],
+        ]);
+        Feat::factory()->create([
+            'archetype_id' => 1,
+            'name' => 'Double Slice',
+            'description' => 'You lash out at your foe with both weapons. Make two Strikes, one with each of your two melee weapons, each using your current multiple attack penalty. Both Strikes must have the same target. If the second Strike is made with a weapon that doesn’t have the agile trait, it takes a –2 penalty. <br>If both attacks hit, combine their damage, and then add any other applicable effects from both weapons. You add any precision damage only once, to the attack of your choice. Combine the damage from both Strikes and apply resistances and weaknesses only once. This counts as two attacks when calculating your multiple attack penalty.',
+            'summary' => 'You lash out at your foe with both weapons.',
+            'prereq' => null,
+            'requirements' => 'You are wielding two melee weapons, each in a different hand.',
+            'type' => 'Class',
+            'level' => 1,
+            'tags' => ['Fighter'],
+        ]);
+        
 
     }
 }

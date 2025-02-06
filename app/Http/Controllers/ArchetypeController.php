@@ -22,6 +22,7 @@ class ArchetypeController extends Controller
 
     public function show(Archetype $class)
     {
+        $class->load(['features','feats']);
         return inertia('Rules/ArchetypeShow', [
             'class' => $class
         ]);

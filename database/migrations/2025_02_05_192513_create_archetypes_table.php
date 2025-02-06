@@ -23,12 +23,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('archetype_feature', function (Blueprint $table) {
+        Schema::create('archetype_features', function (Blueprint $table) {
             $table->id();
             $table->foreignIdfor(Archetype::class);//->constrained()->onDelete('cascade');
             $table->string('name');
             $table->text('description');
-            $table->unsignedTinyInteger('level'); 
+            $table->unsignedTinyInteger('level');
+            $table->json('effect');
             $table->timestamps();
         });
     }

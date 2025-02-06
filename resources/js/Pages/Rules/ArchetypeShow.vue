@@ -1,4 +1,5 @@
 <script setup>
+import Feat from '../../Components/Character/Feat.vue';
 import DOMPurify from 'dompurify';
 
 function sanitizeHTML(html) {
@@ -19,13 +20,13 @@ function sanitizeHTML(html) {
                     <h1>{{ $page.props.class.name }}</h1>
                     <hr>
                     <p>{{ $page.props.class.description.flavor }}</p>
-                    <hr>
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-md-9">
-                    <div class="row mx-5">
-                        <div class="col-md-6 px-5">
+                <hr>
+                <div class="col-md-9 pe-4">
+                    <div class="row mx-5 border bg-danger bg-opacity-25">
+                        <div class="col-md-6 px-5 pt-3 border-end">
                             <h4>Key Abilities</h4>
                             <p>
                             <h5>{{ $page.props.class.key_attributes[0] }} or {{ $page.props.class.key_attributes[1] }}
@@ -34,7 +35,7 @@ function sanitizeHTML(html) {
                             <p>At 1st level your class gives you an ability boost to your choice of {{
                                 $page.props.class.key_attributes[0]}} or {{ $page.props.class.key_attributes[1] }} </p>
                         </div>
-                        <div class="col-md-6 px-5">
+                        <div class="col-md-6 px-5 pt-3">
                             <h4>Hit Points</h4>
                             <p>
                             <h5>{{ $page.props.class.hit_points }} plus your Constitution modifer</h5>
@@ -67,7 +68,7 @@ function sanitizeHTML(html) {
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 border-start ps-4">
                     <h3>Initial Proficiencies</h3>
                     <p class="text-justify" >At 1st level, you gain the listed proficiency ranks in the following statistics. You are untrained in anything not listed unless you gain a better proficiency rank in some other way.</p>
                     <h4>Perception</h4>
@@ -88,6 +89,30 @@ function sanitizeHTML(html) {
                     </template>
                 </div>
             </div>
+            <div class="row mt-4"></div>
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" type="button" role="tab" aria-controls="features" aria-selected="true">Class Features</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="feats-tab" data-bs-toggle="tab" data-bs-target="#feats" type="button" role="tab" aria-controls="feats" aria-selected="false">Class Feats</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="features" role="tabpanel" aria-labelledby="features-tab">
+                            <h3 class="mt-3 mb-5">Class Features</h3>
+                            <div v-for="feature in $page.props.class.features" :key="feature.id">
+                                <h5>{{ feature.name }}</h5>
+                                <p>{{ feature.description }}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="feats" role="tabpanel" aria-labelledby="feats-tab">
+                            <h3 class="mt-3 mb-5">Class Feats</h3>
+                            <Feat v-for="feat in $page.props.class.feats" :key="feat.id" :feat="feat" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 </template>
