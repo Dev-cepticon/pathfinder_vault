@@ -23,8 +23,10 @@ import NavImgDropdown from "@/Components/NavImgDropdown.vue";
                         <NavLink name="Homebrew" :href="route('homebrew')" current="Homebrew" />
                         <NavDropdown name="Rules">
                             <NavLink name="Ancestries" :href="route('ancestries.index')" current="Ancestries" />
-                            <NavLink name="Feats" :href="route('feats.index')" current="Feats" />
                             <NavLink name="Background" :href="route('backgrounds.index')" current="Background" />
+                            <NavLink name="Classes" :href="route('classes.index')" current="Classes" />
+                            <NavLink name="Feats" :href="route('feats.index')" current="Feats" />
+                            
 
                         </NavDropdown>
                         <NavLink name="Forums" :href="route('forums')" current="Forums" />

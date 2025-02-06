@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AncestryController;
 use App\Http\Controllers\FeatController;
 use App\Http\Controllers\BackgroundController;
+use App\Http\Controllers\ArchetypeController;
 
 Route::inertia('/', 'Landing')->name('landing');
 Route::inertia('/characters', 'Characters')->name('characters');
@@ -30,6 +31,7 @@ Route::middleware('guest')->group(function(){
 Route::resource('ancestries', AncestryController::class, ['only' => ['index', 'show']]);
 Route::resource('feats', FeatController::class, ['only' => ['index', 'show']]);
 Route::resource('backgrounds', BackgroundController::class, ['only' => ['index', 'show']]);
+Route::resource('classes', ArchetypeController::class, ['only' => ['index', 'show']]);
 
 
 
