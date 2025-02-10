@@ -119,7 +119,8 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
                             </div>
                             <div class="">
                                 <div class="fs-5 fw-bold">Ability Boosts</div>
-                                <div class="" v-for="boost in ancestry.ability_boosts">{{ boost }}</div>
+                                <div class="" v-for="boost in ancestry.ability_boosts.default">{{ boost }}</div>
+                                <div class="mb" v-if="ancestry.ability_boosts.free_boost > 0">{{ ancestry.ability_boosts.free_boost}} free ability boost(s) </div>
                             </div>
                             <div class="mt-3">
                                 <div class="fs-5 fw-bold">Ablility Flaw</div>
@@ -127,7 +128,8 @@ const img_location = '../storage/_ancestry/' + ancestry.value.name + '.png';
                             </div>
                             <div class="">
                                 <div class="fs-5 fw-bold">Languages</div>
-                                <div class="mb" v-for="lang in ancestry.languages">{{ lang }}</div>
+                                <div class="mb" v-for="lang in ancestry.languages.default">{{ lang }}</div>
+                                <div class="mb">Additional languages equal to your Intelligence modifier (if it's positive). Choose from <template v-for="add in ancestry.languages.additional">{{ add }}, </template> and any other languages to which you have access (such as the languages prevalent in your region).</div>
                             </div>
                             <div>
                                 <div class="fs-5 fw-bold mt-3">Traits</div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Heritage;
 use App\Models\Feat;
+use App\Models\Language;
 
 class Ancestry extends Model
 {
@@ -24,13 +25,15 @@ class Ancestry extends Model
         'languages' => 'json',
     ];
     
-    public function heritages()
-    {
+    public function heritages(){
         return $this->hasMany(Heritage::class);
     }
 
-    public function feats()
-    {
+    // public function languages(){
+    //     return $this->hasMany(Language::class);
+    // }
+    
+    public function feats(){
         return $this->hasMany(Feat::class);
     }
 }

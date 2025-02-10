@@ -46,9 +46,13 @@ defineProps({
                             <strong>Ability Boosts:</strong>
                         </div>
                         <div>
-                            <template v-for="boost in race.ability_boosts">
+                            <template v-for="boost in race.ability_boosts.default">
                                 <i class="bi bi-dot"></i>{{ boost }} 
                             </template>
+                            <template v-if="race.ability_boosts.free_boost > 0">
+                                <i class="bi bi-dot" ></i>{{ race.ability_boosts.free_boost }} free ability boost(s)
+                            </template>
+                                
                         </div>
                         <div><strong>Ability Flaws:</strong></div>
                         <div>{{ race.ability_flaw }}</div>

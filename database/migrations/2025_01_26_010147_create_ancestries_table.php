@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('name');
             $table->json('description')->nullable();
             $table->integer('hit_points');
-            $table->string('size');
+            $table->enum('size', ['Tiny', 'Small', 'Medium', 'Large', 'Huge', 'Gargantuan'])->default('Medium');
             $table->integer('speed');
             $table->json('ability_boosts');
-            $table->string('ability_flaw');
+            $table->string('ability_flaw')->nullable();
             $table->json('languages')->nullable();
             $table->json('traits')->nullable();
             $table->string('vision');
