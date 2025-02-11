@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alignment;
 
-class HeritageController extends Controller
+class AlignmentController extends Controller
 {
     public function index()
     {
@@ -13,10 +14,10 @@ class HeritageController extends Controller
 
     public function create()
     {
-        
+    
     }
 
-    public function show()
+    public function show(Alignment $alignment)
     {
         
     }

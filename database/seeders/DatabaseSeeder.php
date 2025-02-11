@@ -23,8 +23,10 @@ class DatabaseSeeder extends Seeder
 
         User::factory(10)->create();
         $this->call([
+            AlignmentSeeder::class,
             AncestrySeeder::class,
             LanguageSeeder::class,
+
     ]);
         
         Heritage::factory()->create([

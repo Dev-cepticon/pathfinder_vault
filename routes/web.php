@@ -7,8 +7,10 @@ use App\Http\Controllers\FeatController;
 use App\Http\Controllers\BackgroundController;
 use App\Http\Controllers\ArchetypeController;
 
+use App\Models\Character;
+use App\Models\Ancestry;
+
 Route::inertia('/', 'Landing')->name('landing');
-Route::inertia('/characters', 'Characters')->name('characters');
 Route::inertia('/campaigns', 'Campaigns')->name('campaigns');
 Route::inertia('/homebrew', 'Homebrew')->name('homebrew');
 Route::inertia('/forums', 'Forums')->name('forums');
@@ -26,6 +28,16 @@ Route::middleware('guest')->group(function(){
     Route::post('/login', [AuthController::class, 'login']);
 });
 
+Route::inertia('/characters', 'Characters')->name('characters');
+//this need to be updated to create a blank character first the move to the builder
+Route::get('/characters/build/standard', function(){
+    Character::factory()->create();
+    $char = Character::latest()->first();
+    $race = Ancestry::all();
+    return inertia('Characters/CharacterBuilderStandard',['character' => $char, 'ancestries' => $race]);
+})->name('character.standard');
+
+//Route::inertia('/characters/build/standard', 'Characters/CharacterBuilderStandard');
 
 
 Route::resource('ancestries', AncestryController::class, ['only' => ['index', 'show']]);

@@ -13,10 +13,10 @@ class ArchetypeFeatureController extends Controller
 
     public function create()
     {
-        return inertia('Rules/AncestriesCreate');
+        
     }
 
-    public function show(Ancestry $ancestry)
+    public function show()
     {
         
     }

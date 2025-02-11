@@ -17,11 +17,11 @@ const card_location = 'storage/_cards/';
             -->
             <!-- <a href="{{route('job', $job['id'])}}"></a> -->
             <div class="d-flex flex-row">
-                <Link :href="route('ancestries.show', $page.props.ancestries[0].id)">
+                <Link :href="route('ancestries.show', $page.props.ancestries[0])">
                 <CardAncestry :src="card_location + 'cardancestry' + $page.props.ancestries[0].name + '.png'"
                     :race="$page.props.ancestries[0]" uclass="mx-1" />
                 </Link>
-                <Link :href="route('ancestries.show', $page.props.ancestries[1].id)">
+                <Link :href="route('ancestries.show', $page.props.ancestries[1])">
                 <CardAncestry :src="card_location + 'cardancestry' + $page.props.ancestries[1].name + '.png'"
                     :race="$page.props.ancestries[1]" uclass="mx-1" />
                 </Link>
